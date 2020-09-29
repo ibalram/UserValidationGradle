@@ -8,33 +8,34 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 	static Scanner sc = new Scanner(System.in);
-	static String namePattern = "^[A-Z]{1}[A-Za-z]{2,}";
-	static String emailPattern = "^[a-zA-Z0-9+_-]+([.][a-zA-Z0-9]+)*@([a-zA-Z0-9]+)([.][a-z]+)?[.][a-z]{2,}$";
-	static String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
-	static String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=^[^#?!@$%^&*-]*[#?!@$%^&*-][^#?!@$%^&*-]*$).{8,}$";
+	private String namePattern = "^[A-Z]{1}[A-Za-z]{2,}";
+	private String emailPattern = "^[a-zA-Z0-9+_-]+([.][a-zA-Z0-9]+)*@([a-zA-Z0-9]+)([.][a-z]+)?[.][a-z]{2,}$";
+	private String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
+	private String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=^[^#?!@$%^&*-]*[#?!@$%^&*-][^#?!@$%^&*-]*$).{8,}$";
 
-	public static boolean firstNameValidator(String firstName) {
+	public boolean firstNameValidator(String firstName) {
 		return Pattern.matches(namePattern, firstName);
 	}
 
-	public static boolean lastNameValidator(String lastName) {
+	public boolean lastNameValidator(String lastName) {
 		return Pattern.matches(namePattern, lastName);
 	}
 
-	public static boolean emailValidator(String email) {
+	public boolean emailValidator(String email) {
 		return Pattern.matches(emailPattern, email);
 	}
 
-	public static boolean phoneNumberValidator(String phoneNumber) {
+	public boolean phoneNumberValidator(String phoneNumber) {
 		return Pattern.matches(phoneNumberPattern, phoneNumber);
 	}
 
-	public static boolean passwordValidator(String password) {
+	public boolean passwordValidator(String password) {
 		return Pattern.matches(passwordPattern, password);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("User Registration Program with validation");
+		UserRegistration validator = new UserRegistration();
 		String firstName;
 		String lastName;
 		String email;
@@ -45,7 +46,7 @@ public class UserRegistration {
 		System.out.println("Enter the first name:");
 		while (!match) {
 			firstName = sc.nextLine();
-			match = firstNameValidator(firstName);
+			match = validator.firstNameValidator(firstName);
 			if (!match)
 				System.out.println("Invalid First Name, Please enter again (First letter capital, minimum 3 letters)");
 		}
@@ -55,7 +56,7 @@ public class UserRegistration {
 		System.out.println("Enter the last name:");
 		while (!match) {
 			lastName = sc.nextLine();
-			match = lastNameValidator(lastName);
+			match = validator.lastNameValidator(lastName);
 			if (!match)
 				System.out.println("Invalid Last Name, Please enter again (First letter capital, minimum 3 letters)");
 		}
@@ -65,7 +66,7 @@ public class UserRegistration {
 		System.out.println("Enter the email:");
 		while (!match) {
 			email = sc.nextLine();
-			match = emailValidator(email);
+			match = validator.emailValidator(email);
 			if (!match)
 				System.out.println("Invalid email, Please enter again (First letter capital, minimum 3 letters)");
 		}
@@ -75,7 +76,7 @@ public class UserRegistration {
 		System.out.println("Enter the Phone Number:");
 		while (!match) {
 			phoneNumber = sc.nextLine();
-			match = phoneNumberValidator(phoneNumber);
+			match = validator.phoneNumberValidator(phoneNumber);
 			if (!match)
 				System.out.println("Invalid phone Number, Please enter a valid phone Number)");
 		}
@@ -85,7 +86,7 @@ public class UserRegistration {
 		System.out.println("Enter the Password:");
 		while (!match) {
 			password = sc.nextLine();
-			match = passwordValidator(password);
+			match = validator.passwordValidator(password);
 			if (!match)
 				System.out.println("Invalid password format, Please enter a valid password)");
 		}
