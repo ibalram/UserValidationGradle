@@ -10,7 +10,8 @@ public class UserRegistration {
 	static Scanner sc = new Scanner(System.in);
 	static String namePattern = "^[A-Z]{1}[A-Za-z]{2,}";
 	static String emailPattern = "^[a-zA-Z0-9+_-]+([.][a-zA-Z0-9]+)*@([a-zA-Z0-9]+)([.][a-z]+)?[.][a-z]{2,}$";
-
+	static String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
+	
 	public static boolean firstNameValidator(String firstName) {
 		return Pattern.matches(namePattern, firstName);
 	}
@@ -22,12 +23,17 @@ public class UserRegistration {
 	public static boolean emailValidator(String email) {
 		return Pattern.matches(emailPattern, email);
 	}
-
+	
+	public static boolean phoneNumberValidator(String phoneNumber) {
+			return Pattern.matches(phoneNumberPattern, phoneNumber);
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("User Registration Program with validation");
 		String firstName;
 		String lastName;
 		String email;
+		String phoneNumber;
 
 		boolean match = false;
 		System.out.println("Enter the first name:");
@@ -58,5 +64,15 @@ public class UserRegistration {
 				System.out.println("Invalid email, Please enter again (First letter capital, minimum 3 letters)");
 		}
 		System.out.println("Email is added successfully\n");
+		
+		match = false;
+		System.out.println("Enter the Phone Number:");
+		while (!match) {
+			phoneNumber = sc.nextLine();
+			match = phoneNumberValidator(phoneNumber);
+			if (!match)
+				System.out.println("Invalid phone Number, Please enter a valid phone Number)");
+		}
+		System.out.println("Phone Number is added successfully\n");
 	}
 }
