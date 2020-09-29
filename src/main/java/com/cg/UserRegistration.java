@@ -11,7 +11,7 @@ public class UserRegistration {
 	static String namePattern = "^[A-Z]{1}[A-Za-z]{2,}";
 	static String emailPattern = "^[a-zA-Z0-9+_-]+([.][a-zA-Z0-9]+)*@([a-zA-Z0-9]+)([.][a-z]+)?[.][a-z]{2,}$";
 	static String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
-	static String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+	static String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=^[^#?!@$%^&*-]*[#?!@$%^&*-][^#?!@$%^&*-]*$).{8,}$";
 
 	public static boolean firstNameValidator(String firstName) {
 		return Pattern.matches(namePattern, firstName);
