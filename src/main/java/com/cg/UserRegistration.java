@@ -13,24 +13,39 @@ public class UserRegistration {
 	private String phoneNumberPattern = "^[0-9]{1,}[ ][1-9][0-9]{9}$";
 	private String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=^[^#?!@$%^&*-]*[#?!@$%^&*-][^#?!@$%^&*-]*$).{8,}$";
 
-	public boolean firstNameValidator(String firstName) {
-		return Pattern.matches(namePattern, firstName);
+	public boolean firstNameValidator(String firstName) throws FirstNameValidationException {
+		if (Pattern.matches(namePattern, firstName))
+			return true;
+		else
+			throw new FirstNameValidationException("Invalid First Name, Please enter valid first name");
 	}
 
-	public boolean lastNameValidator(String lastName) {
-		return Pattern.matches(namePattern, lastName);
+	public boolean lastNameValidator(String lastName) throws LastNameValidationException {
+		if (Pattern.matches(namePattern, lastName))
+			return true;
+		else
+			throw new LastNameValidationException("Invalid Last Name, Please enter valid last name");
 	}
 
-	public boolean emailValidator(String email) {
-		return Pattern.matches(emailPattern, email);
+	public boolean emailValidator(String email) throws EmailValidationException {
+		if (Pattern.matches(emailPattern, email))
+			return true;
+		else
+			throw new EmailValidationException("Invalid Email, Please enter valid email");
 	}
 
-	public boolean phoneNumberValidator(String phoneNumber) {
-		return Pattern.matches(phoneNumberPattern, phoneNumber);
+	public boolean phoneNumberValidator(String phoneNumber) throws PhoneNumberValidationException {
+		if (Pattern.matches(phoneNumberPattern, phoneNumber))
+			return true;
+		else
+			throw new PhoneNumberValidationException("Invalid Phone Number, Please enter valid phone number");
 	}
 
-	public boolean passwordValidator(String password) {
-		return Pattern.matches(passwordPattern, password);
+	public boolean passwordValidator(String password) throws PasswordValidationException {
+		if (Pattern.matches(passwordPattern, password))
+			return true;
+		else
+			throw new PasswordValidationException("Invalid Password, Please enter valid password");
 	}
 
 	public static void main(String[] args) {
@@ -45,51 +60,66 @@ public class UserRegistration {
 		boolean match = false;
 		System.out.println("Enter the first name:");
 		while (!match) {
-			firstName = sc.nextLine();
-			match = validator.firstNameValidator(firstName);
-			if (!match)
-				System.out.println("Invalid First Name, Please enter again (First letter capital, minimum 3 letters)");
+			try {
+				firstName = sc.nextLine();
+				match = validator.firstNameValidator(firstName);
+				System.out.println("First Name is added successfully\n");
+			} catch (Exception e) {
+				match = false;
+				System.out.println(e.getMessage());
+			}
 		}
-		System.out.println("First Name is added successfully\n");
 
 		match = false;
 		System.out.println("Enter the last name:");
 		while (!match) {
-			lastName = sc.nextLine();
-			match = validator.lastNameValidator(lastName);
-			if (!match)
-				System.out.println("Invalid Last Name, Please enter again (First letter capital, minimum 3 letters)");
+			try {
+				lastName = sc.nextLine();
+				match = validator.lastNameValidator(lastName);
+				System.out.println("Last Name is added successfully\n");
+			} catch (Exception e) {
+				match = false;
+				System.out.println(e.getMessage());
+			}
 		}
-		System.out.println("Last Name is added successfully\n");
 
 		match = false;
 		System.out.println("Enter the email:");
 		while (!match) {
-			email = sc.nextLine();
-			match = validator.emailValidator(email);
-			if (!match)
-				System.out.println("Invalid email, Please enter again (First letter capital, minimum 3 letters)");
+			try {
+				email = sc.nextLine();
+				match = validator.emailValidator(email);
+				System.out.println("Email is added successfully\n");
+			} catch (Exception e) {
+				match = false;
+				System.out.println(e.getMessage());
+			}
 		}
-		System.out.println("Email is added successfully\n");
 
 		match = false;
 		System.out.println("Enter the Phone Number:");
 		while (!match) {
-			phoneNumber = sc.nextLine();
-			match = validator.phoneNumberValidator(phoneNumber);
-			if (!match)
-				System.out.println("Invalid phone Number, Please enter a valid phone Number)");
+			try {
+				phoneNumber = sc.nextLine();
+				match = validator.phoneNumberValidator(phoneNumber);
+				System.out.println("Phone Number is added successfully\n");
+			} catch (Exception e) {
+				match = false;
+				System.out.println(e.getMessage());
+			}
 		}
-		System.out.println("Phone Number is added successfully\n");
 
 		match = false;
 		System.out.println("Enter the Password:");
 		while (!match) {
-			password = sc.nextLine();
-			match = validator.passwordValidator(password);
-			if (!match)
-				System.out.println("Invalid password format, Please enter a valid password)");
+			try {
+				password = sc.nextLine();
+				match = validator.passwordValidator(password);
+				System.out.println("Password is added successfully\n");
+			} catch (Exception e) {
+				match = false;
+				System.out.println(e.getMessage());
+			}
 		}
-		System.out.println("Password is added successfully\n");
 	}
 }

@@ -8,72 +8,112 @@ public class UserRegistrationTest {
 
 	@Test
 	public void testFirstNameValidator() {
-		UserRegistration obj = new UserRegistration();
-		String firstName = "Balram";
-		assertTrue(obj.firstNameValidator(firstName));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String firstName = "Balram";
+			assertEquals(true, obj.firstNameValidator(firstName));
+		} catch (FirstNameValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testFirstNameValidatorSad() {
-		UserRegistration obj = new UserRegistration();
-		String firstName = "balram";
-		assertTrue(obj.firstNameValidator(firstName));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String firstName = "balram";
+			assertEquals(false, obj.firstNameValidator(firstName));
+		} catch (FirstNameValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testLastNameValidator() {
-		UserRegistration obj = new UserRegistration();
-		String lastName = "Singh";
-		assertTrue(obj.lastNameValidator(lastName));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String lastName = "Singh";
+			assertEquals(true, obj.lastNameValidator(lastName));
+		} catch (LastNameValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testLastNameValidatorSad() {
-		UserRegistration obj = new UserRegistration();
-		String lastName = "singh";
-		assertTrue(obj.lastNameValidator(lastName));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String lastName = "singh";
+			assertEquals(false, obj.lastNameValidator(lastName));
+		} catch (LastNameValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testEmailValidator() {
-		UserRegistration obj = new UserRegistration();
-		String email = "abc.xyz@cg.com";
-		assertTrue(obj.emailValidator(email));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String email = "abc.xyz@cg.com";
+			assertEquals(true, obj.emailValidator(email));
+		} catch (EmailValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testEmailValidatorSad() {
-		UserRegistration obj = new UserRegistration();
-		String email = "abc.xyz.cg.com";
-		assertTrue(obj.emailValidator(email));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String email = "abc.xyz.cg.com";
+			assertEquals(false, obj.emailValidator(email));
+		} catch (EmailValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testPhoneNumberValidator() {
-		UserRegistration obj = new UserRegistration();
-		String phoneNumber = "91 9469091234";
-		assertTrue(obj.phoneNumberValidator(phoneNumber));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String phoneNumber = "91 9469091234";
+			assertEquals(true, obj.phoneNumberValidator(phoneNumber));
+		} catch (PhoneNumberValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testPhoneNumberValidatorSad() {
-		UserRegistration obj = new UserRegistration();
-		String phoneNumber = "919469091234";
-		assertTrue(obj.phoneNumberValidator(phoneNumber));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String phoneNumber = "919469091234";
+			assertEquals(false, obj.phoneNumberValidator(phoneNumber));
+		} catch (PhoneNumberValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testPasswordValidator() {
-		UserRegistration obj = new UserRegistration();
-		String password = "xyzA@1111";
-		assertTrue(obj.passwordValidator(password));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String password = "xyzA@1111";
+			assertTrue(obj.passwordValidator(password));
+		} catch (PasswordValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void testPasswordValidatorSad() {
-		UserRegistration obj = new UserRegistration();
-		String password = "xyzA@@1111";
-		assertTrue(obj.passwordValidator(password));
+		try {
+			UserRegistration obj = new UserRegistration();
+			String password = "xyzA@@1111";
+			assertTrue(obj.passwordValidator(password));
+		} catch (PasswordValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }

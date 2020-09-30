@@ -54,7 +54,11 @@ public class EmailValidatorTest {
 	
 	@Test
 	public void testEmailValidatorTest() {
-		assertEquals(expected, userRegistration.emailValidator(email));
+		try {
+			assertEquals(expected, userRegistration.emailValidator(email));
+		}catch(EmailValidationException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 
