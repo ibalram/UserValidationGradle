@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class EmailValidatorTest {
-	private UserRegistration userRegistration;
+	private Validator validator;
 	private String email;
 	private boolean expected;
 	
@@ -21,7 +21,7 @@ public class EmailValidatorTest {
 	
 	@Before
 	public void initialize() {
-		userRegistration = new UserRegistration(); 
+		validator = new Validator(); 
 	}
 	
 	@Parameterized.Parameters
@@ -55,7 +55,7 @@ public class EmailValidatorTest {
 	@Test
 	public void testEmailValidatorTest() {
 		try {
-			assertEquals(expected, userRegistration.emailValidator(email));
+			assertEquals(expected, validator.emailValidator(email));
 		}catch(EmailValidationException e) {
 			System.out.println(e.getMessage());
 		}

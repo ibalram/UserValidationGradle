@@ -9,7 +9,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testFirstNameValidator() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String firstName = "Balram";
 			assertEquals(true, obj.firstNameValidator(firstName));
 		} catch (FirstNameValidationException e) {
@@ -20,7 +20,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testFirstNameValidatorSad() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String firstName = "balram";
 			assertEquals(false, obj.firstNameValidator(firstName));
 		} catch (FirstNameValidationException e) {
@@ -31,7 +31,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testLastNameValidator() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String lastName = "Singh";
 			assertEquals(true, obj.lastNameValidator(lastName));
 		} catch (LastNameValidationException e) {
@@ -42,7 +42,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testLastNameValidatorSad() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String lastName = "singh";
 			assertEquals(false, obj.lastNameValidator(lastName));
 		} catch (LastNameValidationException e) {
@@ -53,7 +53,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testEmailValidator() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String email = "abc.xyz@cg.com";
 			assertEquals(true, obj.emailValidator(email));
 		} catch (EmailValidationException e) {
@@ -64,7 +64,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testEmailValidatorSad() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String email = "abc.xyz.cg.com";
 			assertEquals(false, obj.emailValidator(email));
 		} catch (EmailValidationException e) {
@@ -75,7 +75,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testPhoneNumberValidator() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String phoneNumber = "91 9469091234";
 			assertEquals(true, obj.phoneNumberValidator(phoneNumber));
 		} catch (PhoneNumberValidationException e) {
@@ -86,7 +86,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testPhoneNumberValidatorSad() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String phoneNumber = "919469091234";
 			assertEquals(false, obj.phoneNumberValidator(phoneNumber));
 		} catch (PhoneNumberValidationException e) {
@@ -97,7 +97,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testPasswordValidator() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String password = "xyzA@1111";
 			assertTrue(obj.passwordValidator(password));
 		} catch (PasswordValidationException e) {
@@ -108,7 +108,7 @@ public class UserRegistrationTest {
 	@Test
 	public void testPasswordValidatorSad() {
 		try {
-			UserRegistration obj = new UserRegistration();
+			Validator obj = new Validator();
 			String password = "xyzA@@1111";
 			assertTrue(obj.passwordValidator(password));
 		} catch (PasswordValidationException e) {

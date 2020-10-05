@@ -54,7 +54,7 @@ public class UserRegistration {
 		}
 
 		System.out.println("Enter the email:");
-		while (!match) {
+		while (true) {
 			try {
 				email = sc.nextLine();
 				match = validation.apply(emailPattern, email);
