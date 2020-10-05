@@ -31,62 +31,58 @@ public class UserRegistration {
 		boolean match = false;
 		System.out.println("Enter the first name:");
 		while (true) {
-			try {
-				firstName = sc.nextLine();
-				match = validation.apply(namePattern, firstName);
+			firstName = sc.nextLine();
+			match = validation.apply(namePattern, firstName);
+			if (match) {
 				System.out.println("First Name is added successfully\n");
 				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
 			}
+			System.out.println("Invalid First Name, Please enter valid first name\n");
 		}
 
 		System.out.println("Enter the last name:");
 		while (true) {
-			try {
-				lastName = sc.nextLine();
-				match = validation.apply(namePattern, lastName);
+			lastName = sc.nextLine();
+			match = validation.apply(namePattern, lastName);
+			if (match) {
 				System.out.println("Last Name is added successfully\n");
 				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
 			}
+			System.out.println("Invalid Last Name, Please enter valid last name\n");
 		}
 
 		System.out.println("Enter the email:");
 		while (true) {
-			try {
-				email = sc.nextLine();
-				match = validation.apply(emailPattern, email);
+			email = sc.nextLine();
+			match = validation.apply(emailPattern, email);
+			if (match) {
 				System.out.println("Email is added successfully\n");
 				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
 			}
+			System.out.println("Invalid Email, Please enter valid email\n");
+			
 		}
 
 		System.out.println("Enter the Phone Number:");
 		while (true) {
-			try {
-				phoneNumber = sc.nextLine();
-				match = validation.apply(phoneNumberPattern, phoneNumber);
+			phoneNumber = sc.nextLine();
+			match = validation.apply(phoneNumberPattern, phoneNumber);
+			if (match) {
 				System.out.println("Phone Number is added successfully\n");
 				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
 			}
+			System.out.println("Invalid Phone Number, Please enter valid phone Number\n");
 		}
 
 		System.out.println("Enter the Password:");
 		while (true) {
-			try {
-				password = sc.nextLine();
-				match = validation.apply(passwordPattern, password);
+			password = sc.nextLine();
+			match = validation.apply(passwordPattern, password);
+			if (match) {
 				System.out.println("Password is added successfully\n");
 				break;
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
 			}
+			System.out.println("Invalid Password, Please enter valid password\n");
 		}
 	}
 }
